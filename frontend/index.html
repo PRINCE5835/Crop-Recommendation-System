@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Recommendation System</h1>
+        <p class="subtitle">Based on Soil Nutrient &amp; Environmental Data</p>
+
+        <form id="cropForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="N">Nitrogen (N) <span>mg/kg</span></label>
+                    <input type="number" id="N" step="any" placeholder="e.g. 90" required>
+                </div>
+                <div class="form-group">
+                    <label for="P">Phosphorus (P) <span>mg/kg</span></label>
+                    <input type="number" id="P" step="any" placeholder="e.g. 42" required>
+                </div>
+                <div class="form-group">
+                    <label for="K">Potassium (K) <span>mg/kg</span></label>
+                    <input type="number" id="K" step="any" placeholder="e.g. 43" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="temperature">Temperature <span>&deg;C</span></label>
+                    <input type="number" id="temperature" step="any" placeholder="e.g. 25.6" required>
+                </div>
+                <div class="form-group">
+                    <label for="humidity">Humidity <span>%</span></label>
+                    <input type="number" id="humidity" step="any" placeholder="e.g. 82" required>
+                </div>
+                <div class="form-group">
+                    <label for="ph">pH Level</label>
+                    <input type="number" id="ph" step="any" placeholder="e.g. 6.5" min="0" max="14" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="rainfall">Rainfall <span>mm</span></label>
+                    <input type="number" id="rainfall" step="any" placeholder="e.g. 202" required>
+                </div>
+            </div>
+
+            <button type="submit">Recommend Crop</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <h2>Recommended Crop</h2>
+            <p id="recommendation"></p>
+            <div id="top3"></div>
+        </div>
+
+        <div id="error" class="hidden">
+            <p id="errorMessage"></p>
+        </div>
+
+        <div id="loader" class="hidden">
+            <div class="spinner"></div>
+            <p>Analyzing soil data...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
