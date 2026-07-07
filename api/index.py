@@ -3,10 +3,12 @@ import sys
 import joblib
 import numpy as np
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 app = Flask(__name__)
+CORS(app)
 
 MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "crop_model.pkl")
 SCALER_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "crop_scaler.pkl")

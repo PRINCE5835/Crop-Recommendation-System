@@ -1,4 +1,4 @@
-const API_URL = (typeof __API_URL__ !== "undefined" ? __API_URL__ : "http://127.0.0.1:5000") + "/predict";
+const API_URL = "https://crop-recommendation-api.vercel.app/predict";
 
 const form = document.getElementById("cropForm");
 const resultDiv = document.getElementById("result");
