@@ -72,5 +72,7 @@ if __name__ == "__main__":
     if not loaded:
         print(f"[ERROR] {msg}")
         sys.exit(1)
-    print("[INFO] Starting Flask server on http://127.0.0.1:5000")
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_DEBUG", "0") == "1"
+    print(f"[INFO] Starting Flask server on http://0.0.0.0:{port}")
+    app.run(host="0.0.0.0", port=port, debug=debug)

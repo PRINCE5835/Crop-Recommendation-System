@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000/predict";
+const API_URL = (typeof __API_URL__ !== "undefined" ? __API_URL__ : "http://127.0.0.1:5000") + "/predict";
 
 const form = document.getElementById("cropForm");
 const resultDiv = document.getElementById("result");
@@ -53,7 +53,7 @@ form.addEventListener("submit", async (e) => {
 
         resultDiv.classList.remove("hidden");
     } catch (err) {
-        showError("Could not reach the server. Make sure the backend is running on port 5000.");
+        showError("Could not reach the API server. Check your connection or try again later.");
     } finally {
         submitBtn.disabled = false;
         loader.classList.add("hidden");
